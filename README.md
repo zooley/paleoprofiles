@@ -28,7 +28,7 @@ Files are SVG contianing multiple layers. Each layer has a class name for target
 ## Mosasauridae
 
 ### Tylosaurus proriger
-<img src="https://raw.githubusercontent.com/zooley/paleoprofiles/master/animalia/mammalia/Tylosaurus-proriger.svg?sanitize=true" width="300" alt="Tylosaurus proriger" />
+<img src="https://raw.githubusercontent.com/zooley/paleoprofiles/master/animalia/mosasauridae/Tylosaurus-proriger.svg?sanitize=true" width="300" alt="Tylosaurus proriger" />
 
 ## Mammalia
 
