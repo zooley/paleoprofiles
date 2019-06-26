@@ -9,4 +9,4 @@ Files are SVG contianing multiple layers. Each layer has a class name for target
 * Fenestrae  (`class="fenestrae"`)
 
 ## Dinosauria
-![Majungasaurus crenatissimus](https://raw.githubusercontent.com/zooley/paleoprofiles/master/animalia/dinosauria/Majungasaurus-crenatissimus.svg | width=300x)
+![Majungasaurus crenatissimus](https://raw.githubusercontent.com/zooley/paleoprofiles/master/animalia/dinosauria/Majungasaurus-crenatissimus.svg?sanitize=true | width=300x)
