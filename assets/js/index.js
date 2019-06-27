@@ -5,62 +5,88 @@ function getParameterByName(name) {
 	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-jQuery(document).ready(function($) {
-	var lis = $(".specimens li"),
-		typer = $('#type');
+document.addEventListener('DOMContentLoaded', function() {
+	var lis = document.querySelectorAll('.specimens li'),
+		all = document.getElementById('all-specimens'),
+		i,
+		j;
 
-	$('#search').on("keyup", function() {
-		var input = $(this).val();
+	var search = document.getElementById('search');
+	search.addEventListener('keyup', function(event) {
+		var input = search.value;
 
-		lis.show();
+		for (j = 0; j < lis.length; j++) {
+			lis[j].style.display = 'block';
+		}
 
 		if (input && input.length > 2) {
-			lis.not('[data-keywords*="'+ input +'"]').hide();
+			for (j = 0; j < lis.length; j++) {
+				if (lis[j].getAttribute('data-keywords').indexOf(input) == -1) {
+					lis[j].style.display = 'none';
+				}
+			}
 		}
 	});
 
-	$('.toggle').on("change", function() {
-		console.log('toggle');
-		$('#all-specimens').toggleClass('show-' + $(this).attr('name'));
-	});
-
-	typer.on("change", function() {
-		var input = $(this).val();
-
-		lis.hide();
+	var type = document.getElementById('type');
+	type.addEventListener('change', function(event) {
+		var input = this.value;
 
 		if (!input || input == 'all') {
-			lis.show();
+			for (j = 0; j < lis.length; j++) {
+				lis[j].style.display = 'block';
+			}
 			return;
 		}
 
-		lis.filter('[data-type*="'+ input +'"]').show();
+		for (j = 0; j < lis.length; j++) {
+			lis[j].style.display = 'none';
+		}
+
+		for (j = 0; j < lis.length; j++) {
+			if (lis[j].getAttribute('data-type').indexOf(input) > -1) {
+				lis[j].style.display = 'block';
+			}
+		}
 	});
 
-	var type = getParameterByName('type');
-	if (type) {
-		typer.val(type);
+	var t = getParameterByName('type');
+	if (t) {
+		type.value = t;
 	}
 
-	var opts = $('.size-adjust a');
+	// Add event listener for filters
+	var toggles = document.getElementsByClassName('toggle');
+	for (i = 0; i < toggles.length; i++) {
+		toggles[i].addEventListener('change', function(event) {
+			event.preventDefault();
 
-	opts.on('click', function (e) {
-		e.preventDefault();
+			var name = 'show-' + this.getAttribute('name');
 
-		var opt = $(this);
-		//var container = $('#all-icons');
-		var container = $('#' + opt.parent().attr('data-container'));
-
-		$('.specimens').fadeOut(200, function(){
-			opts.each(function (i, el) {
-				container.removeClass($(el).attr('data-size'));
-				$(el).removeClass('selected');
-			});
-
-			container.addClass(opt.attr('data-size'));
-			$('.specimens').fadeIn();
-
-			opt.addClass('selected');
+			if (all.classList.contains(name)) {
+				all.classList.remove(name);
+			} else {
+				all.classList.add(name);
+			}
 		});
-	});
+	}
+
+	var opts = document.querySelectorAll('.size-adjust a');
+	for (i = 0; i < opts.length; i++) {
+		opts[i].addEventListener('click', function (event) {
+			event.preventDefault();
+
+			for (z = 0; z < opts.length; z++) {
+				if (opts[z].classList.contains('selected')) {
+					opts[z].classList.remove('selected');
+				}
+				if (all.classList.contains(opts[z].getAttribute('data-size'))) {
+					all.classList.remove(opts[z].getAttribute('data-size'));
+				}
+			}
+
+			all.classList.add(this.getAttribute('data-size'));
+			this.classList.add('selected');
+		});
+	}
 });

@@ -24,7 +24,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%
 }
-a:focus {
+/*a:focus {
 	outline: thin dotted #333;
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px;
@@ -95,7 +95,7 @@ textarea {
 }
 .clearfix:after {
 	clear: both
-}
+}*/
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -398,15 +398,7 @@ legend small {
 	font-size: 15.75px;
 	color: #999
 }
-label,
-input,
-button,
-select,
-textarea {
-	font-size: 14px;
-	font-weight: normal;
-	line-height: 21px;
-}
+
 input,
 button,
 select,
@@ -417,15 +409,15 @@ input[type=text],
 input[type=search],
 textarea,
 select {
+	margin: 0;
+	outline: 0;
 	display: inline-block;
-	width: 170px;
-	/*height: 21px;*/
+	width: 15em;
 	padding: 0.2em 0.5em;
-	/*margin-bottom: 9px;*/
 	font-size: 1em;
 	line-height: 1.5em;
 	color: #555;
-	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	-webkit-border-radius: 0.25em;
 	-moz-border-radius: 0.25em;
 	border-radius: 0.25em;
@@ -433,9 +425,11 @@ select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
 }
 select {
-	outline: 0;
+	line-height: 1.6em;
 	padding-right: 2em;
 	text-align: center;
 	vertical-align: middle;
@@ -444,13 +438,15 @@ select {
 	background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='64px' height='48px' viewBox='0 0 64 48' enable-background='new 0 0 64 48' xml:space='preserve'><path fill='rgb(120, 120, 120)' d='M13.5,18.4c0,0.6,0.2,1.2,0.7,1.7c0.4,0.5,1,0.7,1.6,0.7H48c0.6,0,1.2-0.2,1.6-0.7c0.4-0.5,0.7-1,0.7-1.6 c0-0.7-0.2-1.3-0.6-1.7l-16.1-16c-0.5-0.5-1-0.7-1.7-0.7c-0.7,0-1.2,0.2-1.6,0.7l-16.1,16C13.7,17.2,13.5,17.8,13.5,18.4L13.5,18.4z M13.5,29.5c0,0.7,0.2,1.3,0.6,1.7l16.1,16c0.5,0.5,1,0.7,1.7,0.7s1.2-0.2,1.7-0.7l16.1-16.1c0.4-0.4,0.6-1,0.6-1.7 c0-0.6-0.2-1.1-0.7-1.6c-0.4-0.5-1-0.7-1.6-0.7H15.7c-0.6,0-1.1,0.2-1.6,0.7C13.7,28.3,13.5,28.8,13.5,29.5L13.5,29.5z'/></svg>");
 	background-repeat: no-repeat;
 	background-position: right center;
-	background-position: (100% - 4.8em) 50%;
-	background-position: calc(100% - 0.2em) 50%;
+	background-position: (100% - 0.2em) 60%;
+	background-position: calc(100% - 0.2em) 60%;
 	background-size: 1.1em auto;
 }
-.uneditable-textarea {
-	width: auto;
-	height: auto
+input[type=text]:focus,
+input[type=search]:focus,
+textarea:focus,
+select:focus {
+	border-color: yellow;
 }
 label input,
 label textarea,
@@ -462,15 +458,7 @@ input[type="radio"] {
 	display: inline;
 }
 
-:-moz-placeholder {
-	color: #999
-}
-::-webkit-input-placeholder {
-	color: #999
-}
-:-moz-placeholder {
-	color: #999
-}
+:-moz-placeholder,
 ::-webkit-input-placeholder {
 	color: #999
 }
@@ -570,11 +558,24 @@ input[type="radio"] {
 .navbar-form:after {
 	clear: both
 }
-.navbar-form input,
-.navbar-form select {
+.navbar-form label {
+	border: 0;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+.navbar-form .form-control {
 	display: inline-block;
+	margin: 0.4em 0 0 0.2em;
+}
+/*.navbar-form input,
+.navbar-form select {
 	margin-top: 5px;
-	margin-bottom: 0
 }
 .navbar-form .radio,
 .navbar-form .checkbox {
@@ -593,7 +594,7 @@ input[type="radio"] {
 .navbar-form .input-append input,
 .navbar-form .input-prepend input {
 	margin-top: 0
-}
+}*/
 .navbar-fixed-top {
 	position: fixed;
 	top: 0;
@@ -740,7 +741,6 @@ footer {
 }
 .specimens li {
 	position: relative;
-	display: block;
 	float: left;
 	margin: 10px;
 	display: flex;

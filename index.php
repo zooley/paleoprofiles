@@ -1,5 +1,5 @@
 <?php
-$path = '/animalia';
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US" class="no-js">
@@ -18,11 +18,6 @@ $path = '/animalia';
 		<link rel="stylesheet" type="text/css" media="screen" href="./assets/css/index.css" />
 
 		<!-- Scripts -->
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
-		<script src="./assets/js/jquery-3.3.1.min.js"></script>
 		<script src="./assets/js/index.js"></script>
 	</head>
 	<body>
@@ -40,19 +35,27 @@ $path = '/animalia';
 								</span>
 							</li>
 							<li>
-								<select name="type" id="type">
-									<option value="all">All</option>
-									<optgroup label="Dinosauria">
-										<option value="dinosauria">All</option>
-										<option value="theropoda">Theropoda</option>
-										<option value="sauropoda">Sauropoda</option>
-										<option value="ornithischia">Ornithischia</option>
-									</optgroup>
-									<option value="mammalia">Mammalia</option>
-									<option value="pterosauria">Pterosauria</option>
-									<option value="mosasauridae">Mosasauridae</option>
-								</select>
-								<input type="search" name="search" id="search" class="search-query" placeholder="Search..." />
+								<div class="form-control">
+									<label for="type">Type</label>
+									<select name="type" id="type">
+										<option value="all">All</option>
+										<optgroup label="Dinosauria">
+											<option value="dinosauria">All</option>
+											<option value="theropoda">Theropoda</option>
+											<option value="sauropoda">Sauropoda</option>
+											<option value="ornithischia">Ornithischia</option>
+										</optgroup>
+										<option value="mammalia">Mammalia</option>
+										<option value="pterosauria">Pterosauria</option>
+										<option value="mosasauridae">Mosasauridae</option>
+									</select>
+								</div>
+							</li>
+							<li>
+								<div class="form-control">
+									<label for="search">Search</label>
+									<input type="search" name="search" id="search" class="search-query" placeholder="Search..." />
+								</div>
 							</li>
 						</ul>
 					</form>
