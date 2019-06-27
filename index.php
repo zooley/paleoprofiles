@@ -44,8 +44,9 @@ $path = '/animalia';
 									<option value="all">All</option>
 									<optgroup label="Dinosauria">
 										<option value="dinosauria">All</option>
-										<option value="theropods">Theropods</option>
-										<option value="sauropods">Sauropods</option>
+										<option value="theropoda">Theropoda</option>
+										<option value="sauropoda">Sauropoda</option>
+										<option value="ornithischia">Ornithischia</option>
 									</optgroup>
 									<option value="mammalia">Mammalia</option>
 									<option value="pterosauria">Pterosauria</option>
@@ -60,7 +61,30 @@ $path = '/animalia';
 		</header>
 
 		<div class="container">
-			<main id="all-specimens" class="small">
+			<main id="all-specimens" class="small show-teeth show-outline show-fenestra">
+				<div class="filters">
+					<div class="form-control">
+						<label for="toggle-fenestra">
+							<input type="checkbox" name="fenestra" id="toggle-fenestra" class="toggle" value="1" checked="checked" />
+							Fenestra
+						</label>
+					</div>
+
+					<div class="form-control">
+						<label for="toggle-teeth">
+							<input type="checkbox" name="teeth" id="toggle-teeth" class="toggle" value="1" checked="checked" />
+							Teeth
+						</label>
+					</div>
+
+					<div class="form-control">
+						<label for="toggle-outline">
+							<input type="checkbox" name="outline" id="toggle-outline" class="toggle" value="1" checked="checked" />
+							Outline
+						</label>
+					</div>
+				</div>
+
 				<ul class="specimens">
 					<?php
 					$specimens = array();
@@ -91,19 +115,50 @@ $path = '/animalia';
 						}
 					}
 
+					function getPhylogeny($root)
+					{
+						$output = array();
+
+						if ($root->name)
+						{
+							$output[] = (string) $root->name;
+						}
+
+						if ($root->children())
+						{
+							foreach ($root->children() as $child)
+							{
+								if ($child->children())
+								{
+									$output = array_merge($output, getPhylogeny($child));
+								}
+							}
+						}
+
+						return $output;
+					}
+
 					foreach ($specimens as $specimen)
 					{
+						$xmlstr = file_get_contents($specimen['file']);
+						$xml = new SimpleXMLElement($xmlstr);
+						if ($xml->metadata)
+						{
+							$specimen['keywords'] = getPhylogeny($xml->metadata->phyloxml->phylogeny);
+							$specimen['type'] = $specimen['keywords'];
+						}
+
 						$specimen['keywords'][] = $specimen['name'];
 						?>
-						<li data-keywords="<?php echo implode(', ', $specimen['keywords']); ?>" data-type="<?php echo implode(', ', $specimen['type']); ?>">
+						<li data-keywords="<?php echo strtolower(implode(', ', $specimen['keywords'])); ?>" data-type="<?php echo strtolower(implode(', ', $specimen['type'])); ?>">
 							<div class="specimen-content">
 								<div class="specimen-figure">
 									<figure>
-										<?php echo file_get_contents($specimen['file']); ?>
+										<?php echo $xmlstr; ?>
 									</figure>
 								</div>
 								<div class="specimen-details">
-									<div class="name"><?php echo $specimen['name']; ?></div>
+									<div class="name"><?php echo $xml->title;//$specimen['name']; ?></div>
 								</div>
 							</div>
 						</li>

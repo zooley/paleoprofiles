@@ -19,6 +19,11 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	$('.toggle').on("change", function() {
+		console.log('toggle');
+		$('#all-specimens').toggleClass('show-' + $(this).attr('name'));
+	});
+
 	typer.on("change", function() {
 		var input = $(this).val();
 

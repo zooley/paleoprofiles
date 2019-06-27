@@ -451,12 +451,13 @@ select,
 textarea {
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
-label {
+/*label {
 	display: block;
 	margin-bottom: 5px;
 	color: #333
-}
-input,
+}*/
+input[type=text],
+input[type=search],
 textarea,
 select,
 .uneditable-input {
@@ -482,7 +483,11 @@ label textarea,
 label select {
 	display: block
 }
-input[type="image"],
+input[type="checkbox"],
+input[type="radio"] {
+	display: inline;
+}
+/*input[type="image"],
 input[type="checkbox"],
 input[type="radio"] {
 	width: auto;
@@ -502,7 +507,7 @@ input[type="radio"] {
 }
 input[type="image"] {
 	border: 0
-}
+}*/
 input[type="file"] {
 	width: auto;
 	padding: initial;
@@ -630,6 +635,13 @@ select:focus:required:invalid:focus {
 }
 ::-webkit-input-placeholder {
 	color: #999
+}
+.filters {
+	padding: 10px;
+}
+.filters .form-control {
+	display: inline-block;
+	margin-right: 2em;
 }
 /*.help-block {
 	display: block;
@@ -1442,9 +1454,12 @@ footer {
 	padding: 1em;
 }
 .specimen-details {
-	background: #f6f6f6;
+	background: rgba(0, 0, 0, 0.04); /*#f6f6f6;*/
 	padding: 1em;
 	font-size: 0.85em;
+}
+.specimen-details .name {
+	width: 100%;
 }
 .specimen-content:hover {
 	background-color: #fff;
@@ -1462,13 +1477,19 @@ footer {
 	fill: currentColor;
 	vertical-align: middle;
 }
-.specimens figure .outline {
-	fill: #ccc;
+figure .outline,
+figure .fenestra,
+figure .teeth {
+	fill: transparent;
 }
-.specimens figure .fenestra {
+
+.show-outline figure .outline {
+	fill: #666;
+}
+.show-fenestra figure .fenestra {
 	fill: red;
 }
-.specimens figure .teeth {
+.show-teeth figure .teeth {
 	fill: green;
 }
 .specimens figure:hover .skull,
