@@ -32,7 +32,7 @@ $path = '/animalia';
 				<div class="navbar-inner">
 					<h1><a class="brand" href="#">Paleo Profiles</a></h1>
 					<form method="get" action="" class="navbar-form">
-						<ul class="nav pull-right">
+						<ul class="nav">
 							<li>
 								<span class="size-adjust" data-container="all-specimens">
 									<a class="size-small selected" data-size="small" href="#size-small">Small icons</a>
@@ -52,7 +52,7 @@ $path = '/animalia';
 									<option value="pterosauria">Pterosauria</option>
 									<option value="mosasauridae">Mosasauridae</option>
 								</select>
-								<input name="search" id="search" class="search-query" placeholder="Search..." />
+								<input type="search" name="search" id="search" class="search-query" placeholder="Search..." />
 							</li>
 						</ul>
 					</form>
@@ -62,7 +62,9 @@ $path = '/animalia';
 
 		<div class="container">
 			<main id="all-specimens" class="small show-teeth show-outline show-fenestra">
-				<div class="filters">
+				<div class="toggles">
+					Display:
+
 					<div class="form-control">
 						<label for="toggle-fenestra">
 							<input type="checkbox" name="fenestra" id="toggle-fenestra" class="toggle" value="1" checked="checked" />
