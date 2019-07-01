@@ -64,20 +64,20 @@
 		</header>
 
 		<div class="container">
-			<main id="all-specimens" class="small show-teeth show-outline show-fenestra">
+			<main id="all-specimens" class="small show-outline">
 				<div class="toggles">
 					Display:
 
 					<div class="form-control">
 						<label for="toggle-fenestra">
-							<input type="checkbox" name="fenestra" id="toggle-fenestra" class="toggle" value="1" checked="checked" />
+							<input type="checkbox" name="fenestra" id="toggle-fenestra" class="toggle" value="1" />
 							Fenestra
 						</label>
 					</div>
 
 					<div class="form-control">
 						<label for="toggle-teeth">
-							<input type="checkbox" name="teeth" id="toggle-teeth" class="toggle" value="1" checked="checked" />
+							<input type="checkbox" name="teeth" id="toggle-teeth" class="toggle" value="1" />
 							Teeth
 						</label>
 					</div>
@@ -164,6 +164,20 @@
 								</div>
 								<div class="specimen-details">
 									<div class="name"><?php echo $xml->title;//$specimen['name']; ?></div>
+									<?php /*<div class="tree">
+										<ul class="branch">
+											<?php
+											foreach ($specimen['keywords'] as $node)
+											{
+												?>
+												<li class="leaf">
+													<?php echo $node; ?>
+												</li>
+												<?php
+											}
+											?>
+										</ul>
+									</div>*/ ?>
 								</div>
 							</div>
 						</li>
