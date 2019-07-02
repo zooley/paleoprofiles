@@ -1,6 +1,8 @@
 # Paleo Profiles
 Vector-based profiles of paleontological specimens.
 
+<img src="https://raw.githubusercontent.com/zooley/paleoprofiles/master/animalia/dinosauria/Majungasaurus-crenatissimus.svg?sanitize=true" width="300" alt="Majungasaurus crenatissimus" />
+
 ## Structure
 
 Files are SVG contianing multiple layers. Each layer has a class name for targeting with CSS/JS.
@@ -54,11 +56,6 @@ Each SVG also contains metadata with a [phylogenic tree](http://www.phyloxml.org
     </phyloxml>
 </metadata>
 ```
-
-## Example
-Majungasaurus crenatissimus
-
-<img src="https://raw.githubusercontent.com/zooley/paleoprofiles/master/animalia/dinosauria/Majungasaurus-crenatissimus.svg?sanitize=true" width="300" alt="Majungasaurus crenatissimus" />
 
 ## Catalog
 
