@@ -64,20 +64,20 @@
 		</header>
 
 		<div class="container">
-			<main id="all-specimens" class="small show-outline">
+			<main id="all-specimens" class="small show-outline show-fenestrae show-teeth">
 				<div class="toggles">
 					Display:
 
 					<div class="form-control">
-						<label for="toggle-fenestra">
-							<input type="checkbox" name="fenestra" id="toggle-fenestra" class="toggle" value="1" />
+						<label for="toggle-fenestrae">
+							<input type="checkbox" name="fenestrae" id="toggle-fenestrae" class="toggle" value="1" checked="checked" />
 							Fenestra
 						</label>
 					</div>
 
 					<div class="form-control">
 						<label for="toggle-teeth">
-							<input type="checkbox" name="teeth" id="toggle-teeth" class="toggle" value="1" />
+							<input type="checkbox" name="teeth" id="toggle-teeth" class="toggle" value="1" checked="checked" />
 							Teeth
 						</label>
 					</div>

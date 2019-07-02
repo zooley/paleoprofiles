@@ -614,44 +614,45 @@ figure .fenestra,
 figure .teeth {
 	fill: transparent;
 }*/
-.outline path {
+
+figure .outline path {
 	fill: #f3d3a8;
 	fill: none;
-	stroke: #f3d3a8;
+	stroke: none;
 	stroke-width: 6;
 	stroke-miterlimit: 10;
 }
-.skull path {
+figure .skull path {
 	fill: none;
 	stroke: #231f20;
 	stroke-width: 1;
 	stroke-miterlimit: 10;
 }
-.skull .base {
+figure .skull .base {
 	fill: #ebebe5;
 }
-.fenestra path {
-	fill: #231f20;
+figure .fenestrae path {
+	fill: none;
 	stroke-width: 1;
 	stroke-miterlimit: 10;
 }
-.teeth path {
-	fill: #cdad6e;
+figure .teeth path {
+	fill: none;
 	stroke: #231f20;
 	stroke-width: 1;
 	stroke-miterlimit: 10;
 }
 
-/*.show-outline figure .outline {
-	fill: #666;
+.show-outline figure .outline path {
+	stroke: #f3d3a8;
 }
-.show-fenestra figure .fenestra {
-	fill: red;
+.show-fenestrae figure .fenestrae path {
+	fill: #231f20;
 }
-.show-teeth figure .teeth {
-	fill: green;
+.show-teeth figure .teeth path {
+	fill: #cdad6e;
 }
-.specimens figure:hover .skull,
+/*.specimens figure:hover .skull,
 .specimens figure:hover .teeth,
 .specimens figure:hover .fenestra {
 	fill: #666;
